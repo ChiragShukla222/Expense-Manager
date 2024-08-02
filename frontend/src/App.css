@@ -1,0 +1,98 @@
+/* Centering the login form */
+.centered-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px); /* Adjust height to fit footer */
+    background: linear-gradient(to right, #4facfe, #00f2fe); /* Gradient background */
+    padding-bottom: 50px; /* Adjust bottom padding for footer spacing */
+}
+
+/* Styling the login form */
+.login-form {
+    width: 100%;
+    max-width: 500px; /* Increased maximum width of the form */
+    padding: 40px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Enhanced box shadow */
+    background-color: white; /* Form background color */
+    border-radius: 10px; /* Rounded corners */
+    border: 1px solid #ccc; /* Border for the form */
+    animation: fadeIn 5s; /* Fade-in animation */
+    height: 400px;
+    margin-bottom: 50px;
+   
+}
+
+/* Header styling */
+.home_header {
+    
+    background: #333;
+    color: white;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Header box shadow */
+    display: flex;
+    text-align: center;
+    padding-left: 550px;
+    
+
+}
+/* for logo inside the header */
+#logo{
+    font-size: 30px;
+    
+}
+
+/* Button inside the header */
+.home_header .header-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #00f2fe; /* Custom button color */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.header-btn{
+    margin: 10px;
+}
+
+.home_header .header-btn:hover {
+    background-color: #4facfe; /* Hover effect for the button */
+}
+
+/* Footer styling */
+.foooterfor_home {
+    text-align: center;
+    padding: 20px;
+    background: #f1f1f1;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Footer box shadow */
+    border-top: 1px solid #ccc; 
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    h6,p{
+        position: relative;
+        top: 10px;
+    }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* for modal of cerate account */
+.password_require_fields{
+
+    font-size: 15x;
+}
