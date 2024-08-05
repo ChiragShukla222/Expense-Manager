@@ -1,10 +1,12 @@
-import React from 'react';
+
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { message } from "antd";
 import { MoneyCollectOutlined } from '@ant-design/icons';
+import axios from "axios"
+import Password from 'antd/es/input/Password';
 
 
 
@@ -17,12 +19,30 @@ const Home = () => {
 
     const handleShow = () => setShow(true);
 
-    const handleClosemsg = () => {
-        setShow(false);
-        message.success("Account Created Successfully", [5])
-    }
+    // const handleClosemsg = () => {
+    //     setShow(false);
+    //     message.success("Account Created Successfully", [5])
+    // }
 
-    
+
+
+    // ------------------------------------------------------------------
+    //for login of registered user using email and pasword
+
+    const[loginInputemail , setloginemail] = useState({})
+
+    const[loginInputpass , setloginpass] = useState("")
+
+    const checkUser=(e)=>{
+        e.preventDefault();
+        let api = "http://localhost:8000/customer/customercheck"
+        axios.post(api,{email:loginInputemail , password:loginInputpass}).then((res)=>{
+            console.log(res);
+           // message.success("Login",[5])
+        })
+
+    }
+  // -------------------------------------------------------------------
 
     // for forgot password
 
@@ -31,6 +51,31 @@ const Home = () => {
     const handleForgotMSg=()=>{
         setForgot(false)
         message.success("Otp Sent Successfully",[3])
+    }
+
+    // for input handling of the new registartion 
+        const[inputSign , inputSignInput] = useState({})
+
+    const handleInput = (e)=>{
+        let name = e.target.name
+
+        let value = e.target.value 
+
+        inputSignInput(values=>({...values ,[name]:value}))
+
+        console.log(inputSign)
+
+
+    }
+
+    const handleInputSubmit=()=>{
+        let api = "http://localhost:8000/customer/customersave"
+
+        axios.post(api,inputSign).then((res)=>{
+            console.log(res)
+            setShow(false);
+            message.success("Account Created Successfully", [5])
+        })
     }
 
     return (
@@ -73,11 +118,26 @@ const Home = () => {
                                 </div>
                             <Form>
                                 <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+
+                                    {/* for name */}
+                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                    <Form.Label>Name</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        name="name"
+                                        autoFocus
+                                        onChange={handleInput}
+                                        
+                                        
+                                    />
+                                </Form.Group>
+                                {/* mail */}
                                     <Form.Label>Email address</Form.Label>
                                     <Form.Control
                                         type="email"
                                         placeholder="name@example.com"
-                                        autoFocus
+                                        name="email"
+                                        onChange={handleInput}
                                     />
                                 </Form.Group>
 
@@ -87,6 +147,8 @@ const Home = () => {
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control
                                         type="password"
+                                        name="password"
+                                        onChange={handleInput}
                                        
                                     />
                                 </Form.Group>
@@ -94,6 +156,17 @@ const Home = () => {
                                     <Form.Label>Verify New Password</Form.Label>
                                     <Form.Control
                                         type="password"
+                                        name="vpassword"
+                                        onChange={handleInput}
+                                        
+                                    />
+                                </Form.Group>
+                                <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                                    <Form.Label>City</Form.Label>
+                                    <Form.Control
+                                        type="text"
+                                        name="city"
+                                        onChange={handleInput}
                                         
                                     />
                                 </Form.Group>
@@ -104,7 +177,7 @@ const Home = () => {
                             <Button variant="secondary" onClick={handleClose}>
                                 Close
                             </Button>
-                            <Button variant="primary" onClick={handleClosemsg}>
+                            <Button variant="primary" onClick={ handleInputSubmit}>
                                 Create Account
                             </Button>
                             
@@ -152,23 +225,31 @@ const Home = () => {
                 <div className="centered-form">
 
 
-                    {/*  */}
+                    {/*login front page  */}
+
+
                     <Form className="login-form">
                                 <h3 style={{marginTop:-29 , textAlign:"center" ,fontSize:25}}>Sign in</h3>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>
                                 <h6>Email address</h6>
                             </Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" />
+                            <Form.Control type="email" 
+                            placeholder="Enter email"  
+                            name="email"
+                            onChange={(e)=>setloginemail(e.target.value)}/>
                            
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label><h6>Password</h6></Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
+                            <Form.Control type="password" 
+                            placeholder="Password" 
+                            name ="password" 
+                            onChange={(e)=>setloginpass(e.target.value)}/>
                         </Form.Group>
 
-                        <Button variant="primary" type="submit" style={{width:420 , marginTop:10}}>
+                        <Button variant="primary" type="submit" style={{width:420 , marginTop:10}} onClick={checkUser}>
                             Sign in
                         </Button>
                         <br />
