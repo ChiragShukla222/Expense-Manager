@@ -6,6 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 import { message } from "antd";
 import { MoneyCollectOutlined } from '@ant-design/icons';
 import axios from "axios"
+import { Navigate, useNavigate } from 'react-router-dom';
 import Password from 'antd/es/input/Password';
 
 
@@ -33,15 +34,25 @@ const Home = () => {
 
     const[loginInputpass , setloginpass] = useState("")
 
-    const checkUser=(e)=>{
+    const  navigate = useNavigate()
+    const checkUser = async (e) => {
         e.preventDefault();
-        let api = "http://localhost:8000/customer/customercheck"
-        axios.post(api,{email:loginInputemail , password:loginInputpass}).then((res)=>{
-            console.log(res);
-           // message.success("Login",[5])
-        })
-
-    }
+        let api = "http://localhost:8000/customer/customercheck";
+        
+        try {
+          const res = await axios.post(api, { email: loginInputemail, password: loginInputpass });
+          console.log(res.data.name);
+          window.localStorage.setItem("userName", res.data.name);
+          window.localStorage.setItem("userEmail", res.data.email);
+          navigate("/dashboard");
+          message.success("Logged in !!",[5])
+        } catch (error) {
+          console.error("Error checking user:", error);
+          message.error("email or password not valid")
+          // You can also display an error message to the user here, if needed
+        }
+      };
+      
   // -------------------------------------------------------------------
 
     // for forgot password
