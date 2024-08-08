@@ -21,25 +21,26 @@ const customerSave=async(req,res)=>{
 
         }
 }
-const customerCheck =async(req,res)=>{
-    
-    const{email , password} = req.body;
-
-    const data = await coustModel.findOne({email:email});
-
-    if(data==null){
-        res.send("Invalid Email")
-    }
-    else if(data.password==password){
-        console.log("ok ps verified")
-
+const customerCheck = async (req, res) => {
+    const { email, password } = req.body;
+  
+    try {
+      const data = await coustModel.findOne({ email: email });
+  
+      if (data == null) {
+        res.status(404).send("Invalid Email");
+      } else if (data.password == password) {
+        console.log("ok ps verified");
         res.status(200).send(data);
+      } else {
+        res.status(401).send("Password  is wrong");
+      }
+    } catch (error) {
+      console.error("Error checking customer:", error);
+      res.status(500).send("Internal Server Error");
     }
-    else{
-        res.send("password is wrong")
-    }
-}
-
+  };
+  
 
 
 

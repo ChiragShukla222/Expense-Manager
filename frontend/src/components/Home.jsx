@@ -47,7 +47,7 @@ const Home = () => {
           navigate("/dashboard");
           message.success("Logged in !!",[5])
         } catch (error) {
-          console.error("Error checking user:", error);
+          console.error("Error checking user:", error.response.data);
           message.error("email or password not valid")
           // You can also display an error message to the user here, if needed
         }
