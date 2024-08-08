@@ -1,0 +1,102 @@
+.dash_header {
+  background: #333;
+  color: white;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Header box shadow */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+/* Right section for welcome message, user ID, and button */
+.dash_header .right-section {
+  display: flex;
+  align-items: center;
+}
+
+.dash_header .right-section > * {
+  margin-left: 20px; /* Spacing between elements */
+}
+
+#logo {
+  font-size: 30px;
+  color: #00f2fe; /* Custom color for logo */
+}
+#lotext{
+  margin-left: -45%;
+ }  /*  to adjust the text of logo */
+
+/* Button inside the header */
+.dash_header .header-btn {
+  background-color: #0078fe; /* Slightly darker button color */
+  border: none;
+  color: white;
+  padding: 6px 12px; /* Smaller padding */
+  font-size: 14px; /* Smaller font size */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  border-radius: 4px; /* Optional: smaller border radius */
+}
+
+.header-btn:hover {
+  background-color: #005fd1; /* Hover effect for the button */
+}
+
+.header-btn svg {
+  margin-right: 6px; /* Reduced margin for smaller button */
+}
+.dash_header h1 {
+  font-size: 24px;
+  color: white;
+  margin: 0; /* Remove margin for proper alignment */
+}
+
+.dash_header h1 span {
+  color: #00f2fe; /* Custom color for .com */
+}
+
+.dash_header h2 {
+  font-size: 18px;
+  color: #ccc;
+  margin: 0; /* Remove margin for proper alignment */
+}
+/* for menu css */
+
+/* Container for the navigation menu */
+.menu {
+  width:200px;
+  height:auto;
+  background: #444; /* Dark background for the menu */
+  padding: 15px; /* Padding around the menu items */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+/* Style for each navigation link */
+.menu a {
+  color: #00f2fe; /* Light blue color for links */
+  text-decoration: none; /* Remove underline from links */
+  font-size: 18px; /* Font size for the links */
+  margin: 0 10px; 
+  display: flex;
+
+  flex-direction:column;/* Horizontal spacing between links */
+   /* Ensure proper spacing and alignment */
+  padding: 10px; /* Padding around the text */
+  border-radius: 4px; /* Slightly rounded corners */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+}
+
+/* Hover effect for links */
+.menu a:hover {
+  background-color: #005fd1; /* Darker background on hover */
+  color: white; /* Change text color on hover */
+}
+
+/* Add a line break between links */
+.menu br {
+  display: none; /* Hide the <br> tag */
+}
