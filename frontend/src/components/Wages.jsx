@@ -6,6 +6,13 @@ import axios from "axios"
 import "./wagestye.css"
 const Wages = () => {
     const[input , setInput] = useState({} )
+    // to get the id of the user
+    const [uid, setUid]= useState();
+    useEffect(()=>{
+      let usrid= window.localStorage.getItem("userid");
+      setUid(usrid);
+    }, []);
+  
 
     // to get input ifn the form
     const handleInput=(e)=>{
@@ -18,10 +25,12 @@ const Wages = () => {
         
         }
 
-        const handleSubmit=()=>{
+        const handleSubmit=(e)=>{
+          e.preventDefault()
 
           let api = "http://localhost:8000/wages/wagesave"
-          axios.post(api,input).then((res)=>{
+          axios.post(api,{...input,id:uid}).then((res)=>{
+            
                 console.log(res)
           })
 
