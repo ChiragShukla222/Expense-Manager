@@ -44,6 +44,9 @@ const Home = () => {
           console.log(res.data.name);
           window.localStorage.setItem("userName", res.data.name);
           window.localStorage.setItem("userEmail", res.data.email);
+        //   to ge the userobject id from backend
+        console.log( res.data._id)
+          window.localStorage.setItem("userid", res.data._id);
           navigate("/dashboard");
           message.success("Logged in !!",[5])
         } catch (error) {
