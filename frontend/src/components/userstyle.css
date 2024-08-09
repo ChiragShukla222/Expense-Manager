@@ -68,35 +68,53 @@
 
 /* Container for the navigation menu */
 .menu {
-  width:200px;
-  height:auto;
-  background: #444; /* Dark background for the menu */
-  padding: 15px; /* Padding around the menu items */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  width: 200px;
+  height:610px;
+  padding: 20px;
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb); /* Gradient background */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced box shadow */
+  border-radius: 12px; /* Rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+  float: left; /* Align menu to the left */
+  margin-right: 20px; /* Space between menu and content */
 }
 
-/* Style for each navigation link */
-.menu a {
-  color: #00f2fe; /* Light blue color for links */
-  text-decoration: none; /* Remove underline from links */
-  font-size: 18px; /* Font size for the links */
-  margin: 0 10px; 
-  display: flex;
-
-  flex-direction:column;/* Horizontal spacing between links */
-   /* Ensure proper spacing and alignment */
-  padding: 10px; /* Padding around the text */
-  border-radius: 4px; /* Slightly rounded corners */
-  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+.menu:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
 }
 
-/* Hover effect for links */
-.menu a:hover {
-  background-color: #005fd1; /* Darker background on hover */
-  color: white; /* Change text color on hover */
+.menu .nav-link {
+  margin-bottom: 15px; /* Space between links */
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #64b5f6; /* Link background color */
+  color: #fff; /* Link text color */
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover transition */
+  display: block;
+  text-align: center; /* Center align text */
 }
 
-/* Add a line break between links */
-.menu br {
-  display: none; /* Hide the <br> tag */
+.menu .nav-link:hover {
+  background-color: #42a5f5; /* Darker background on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+  color: #fff;
+  text-decoration: none; /* Remove underline */
 }
+
+.menu .nav-link.active {
+  background-color: #1e88e5; /* Different color for the active link */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow for the active link */
+}
+
+.content {
+  padding: 20px;
+  background-color: #f5f7fa;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  min-height: 300px;
+  margin-top: 20px;
+  overflow: auto; /* Ensures content doesn't overflow */
+}
+
