@@ -1,0 +1,61 @@
+.form-container {
+    width: 500px;
+    padding: 20px;
+    margin: 100px auto;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Gradient background */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced box shadow for a stronger 3D effect */
+    border-radius: 12px; /* Slightly more rounded corners */
+    border: 1px solid #d3d3d3; /* Subtle border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+  }
+  
+  .form-container:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+  }
+  
+  .form-container .form-group {
+    margin-bottom: 20px; /* Increased space between form groups */
+  }
+  
+  .form-container .form-label {
+    font-weight: 700; /* Make labels bolder */
+    color: #333; /* Darker label color */
+  }
+  
+  .form-container .form-control {
+    border-radius: 8px; /* More rounded corners for inputs */
+    border: 1px solid #ccc; /* Subtle border for inputs */
+    padding: 10px; /* Increased padding for inputs */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Enhanced inner shadow */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for input focus */
+  }
+  
+  .form-container .form-control:focus {
+    border-color: #007bff; /* Border color on focus */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.4); /* Blue glow on focus */
+  }
+  
+  .form-container .btn {
+    width: 100%;
+    padding: 12px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Gradient button */
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Button shadow */
+    transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+  }
+  
+  .form-container .btn:hover {
+    background: linear-gradient(135deg, #0056b3, #004080); /* Darker gradient on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+  }
+  
+  .form-container .btn:active {
+    background: linear-gradient(135deg, #004080, #003366); /* Even darker gradient on click */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Inner shadow on click */
+    transform: translateY(2px); /* Slight button press effect */
+  }
+  

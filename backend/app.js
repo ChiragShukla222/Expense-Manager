@@ -23,9 +23,10 @@ app.use(bodyparser.json())
 
 // Import routes from routes/customerRoutes
 const customerRoutes = require("./routes/customerRoutes");
-
+const wageRoutes = require("./routes/waegsRoutes")
 // Use the customerRoutes for the /customer endpoint
 app.use("/customer", customerRoutes);
+app.use("/wages",wageRoutes);
 
 // Port configuration with a fallback value
 const port = process.env.PORT 
