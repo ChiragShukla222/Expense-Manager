@@ -4,6 +4,7 @@ import UserDashBoard from "./components/UserDashBoard"
 import Wages from "./components/Wages"
 import Expense from "./components/Expense"
 import Saving from "./components/Saving"
+import Showwage from "./components/Showwage"
 const App = () => {
   return (
     <>
@@ -18,6 +19,7 @@ const App = () => {
                                     <Route path="wages" element={<Wages/>}/>
                                     <Route path="expense"element={<Expense/>}/>
                                     <Route path="savings" element={<Saving/>}/>
+                                    <Route path ="displaywages" element ={<Showwage/>}/>
                 </Route>
 
             </Routes>
