@@ -41,6 +41,7 @@ const UserDashBoard = () => {
             <Nav.Link as={Link} to="wages">Wages</Nav.Link>
             <Nav.Link as={Link} to="savings">Savings</Nav.Link>
             <Nav.Link as={Link} to="expense">Expense</Nav.Link>
+            <Nav.Link as={Link} to="displaywages">Total Fund</Nav.Link>
         </Nav>
           </div>
         

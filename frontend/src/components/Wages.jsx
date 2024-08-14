@@ -26,11 +26,12 @@ const Wages = () => {
         }
 
         const handleSubmit=(e)=>{
-          e.preventDefault()
+           e.preventDefault()
 
           let api = "http://localhost:8000/wages/wagesave"
           axios.post(api,{...input,id:uid}).then((res)=>{
             
+           
                 console.log(res)
           })
 
