@@ -1,7 +1,7 @@
 .form-container {
-    width: 500px;
+    width: 700px;
     padding: 20px;
-    margin: 100px auto;
+    margin: 130px auto;
     background: linear-gradient(135deg, #f5f7fa, #c3cfe2); /* Gradient background */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced box shadow for a stronger 3D effect */
     border-radius: 12px; /* Slightly more rounded corners */
