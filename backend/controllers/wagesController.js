@@ -1,11 +1,27 @@
-const wageModel= require("")
+const wageModel= require("../models/wagesModel")
 
 
 const saveWage=async(req,res)=>{
-    res.send("wagesave from controller")
+    
+    const {amount,source,date,id} =  req.body
+        const wageData = await wageModel.create({
+            user:id,
+            amount:amount,
+            source:source,
+            date:date
+        })
+        res.send(wageData)
 }
 
+const Wagesshow=async(req,res)=>{
+    let id = req.body.id;
+    const wagedata = await wageModel.find({user:id})
+    res.status(200).send(wagedata)
+
+
+}
 
 module.exports={
-    saveWage
+    saveWage,
+    Wagesshow
 }
