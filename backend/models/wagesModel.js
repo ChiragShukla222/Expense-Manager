@@ -15,7 +15,7 @@ const wageSchema = new mongoose.Schema({
             required:true
         },date:{
             type:Date,
-            required:true
+            default:Date.now
         }
 
 });
