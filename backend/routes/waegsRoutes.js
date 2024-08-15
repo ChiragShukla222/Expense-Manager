@@ -6,4 +6,6 @@ const wageController = require("../controllers/wagesController")
 
 router.post("/wagesave",wageController.saveWage)
 
+router.post("/showwages",wageController.Wagesshow)
+
 module.exports =router
