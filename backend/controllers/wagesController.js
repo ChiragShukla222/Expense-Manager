@@ -35,16 +35,15 @@ const saveExpense=async(req,res)=>{
    
 }
 
-const expenseDisplay=async(req,res)=>{
-  let id = req.body.id
-  const ed = await expenseModel.find({user:id})
-  res.status(204).send(ed)
-    
+const displayExp = async(req,res)=>{
+    const id = req.body.id;
+    const dexp = await expenseModel.find({user:id})
+    res.send(dexp)
+    console.log("nsfhsjksn")
 }
-
 module.exports={
     saveWage,
     Wagesshow,
     saveExpense,
-    expenseDisplay
+    displayExp
 }
