@@ -1,74 +1,71 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from "axios";
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 
 const Saving = () => {
-    const [mdata, setData] = useState([]);
-    const [userid, setUserid] = useState();
+  const [mydata, Setmydata] = useState([]);
+  const [usid, setUsid] = useState("");
 
-    useEffect(() => {
-        let usrid = window.localStorage.getItem("userid");
-        setUserid(usrid);
-    }, []);
-
-    useEffect(() => {
-        if (userid) {
-            loaddata();
-        }
-    }, [userid]);
-
-    const loaddata = () => {
-        let api = "http://localhost:8000/wages/displayexpense";
-
-        axios.post(api, { id: userid })
-            .then((res) => {
-                console.log('API response:', res.data);
-                if (Array.isArray(res.data)) {
-                    setData(res.data);
-                } else {
-                    console.error('API response is not an array:', res.data);
-                }
-            })
-            .catch((err) => {
-                console.error("Error loading data:", err);
-            });
+  useEffect(() => {
+    const fetchUserId = () => {
+      const storedUsid = window.localStorage.getItem("userid");
+      if (storedUsid) {
+        setUsid(storedUsid);
+      } else {
+        console.warn('No user ID found in local storage.');
+      }
     };
 
-    return (
-        <>
-            <h1>Display the expenses here</h1>
+    fetchUserId();
+  }, []);
 
-            <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell>Amount</TableCell>
-                            <TableCell>Description</TableCell>
-                            <TableCell>Date</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {Array.isArray(mdata) && mdata.map((row, index) => (
-                            <TableRow
-                                key={index}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                            >
-                                <TableCell>{row.amount}</TableCell>
-                                <TableCell>{row.description}</TableCell>
-                                <TableCell>{row.date}</TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-        </>
+  useEffect(() => {
+    if (usid) {
+      const loadData = () => {
+        const api = "http://localhost:8000/wages/expdisplay";
+        axios.post(api, { id: usid })
+          .then((res) => {
+            Setmydata(res.data);
+            console.log(res.data);
+          })
+          .catch(error => {
+            console.error('Error fetching data:', error);
+          });
+      };
+
+      loadData();
+    }
+  }, [usid]);
+
+  let sno = 0;
+  const ans = mydata.map((item) => {
+    sno++;
+    return (
+      <tr key={item._id}>
+        <td>{sno}</td>
+        <td>{item.decription}</td>
+        <td>{item.amount}</td>
+        <td>{new Date(item.date).toLocaleDateString()}</td>
+      </tr>
     );
-}
+  });
+
+  return (
+    <>
+      <table>
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {ans}
+        </tbody>
+      </table>
+    </>
+  );
+};
 
 export default Saving;

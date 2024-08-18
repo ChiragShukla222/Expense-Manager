@@ -43,6 +43,7 @@ const Home = () => {
         try {
           const res = await axios.post(api, { email: loginInputemail, password: loginInputpass });
           console.log(res.data.name);
+          
           window.localStorage.setItem("userName", res.data.name);
           window.localStorage.setItem("userEmail", res.data.email);
         //   to ge the userobject id from backend
