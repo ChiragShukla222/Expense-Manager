@@ -38,10 +38,12 @@ const UserDashBoard = () => {
         {/* for menu and all options */}
         <div className="menu">
           <Nav defaultActiveKey="/home" className="flex-column" >
-            <Nav.Link as={Link} to="wages">Wages</Nav.Link>
-            <Nav.Link as={Link} to="savings">Savings</Nav.Link>
-            <Nav.Link as={Link} to="expense">Expense</Nav.Link>
-            <Nav.Link as={Link} to="displaywages">Total Fund</Nav.Link>
+            <Nav.Link as={Link} to="wages">Wages/Earnings</Nav.Link>
+            <Nav.Link as={Link} to="displaywages">Display Earning</Nav.Link>
+            <Nav.Link as={Link} to="expense">Expenses</Nav.Link>
+            <Nav.Link as={Link} to="savings">Display Expenses</Nav.Link>
+            
+           
         </Nav>
           </div>
         
