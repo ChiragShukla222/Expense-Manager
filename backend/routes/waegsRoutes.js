@@ -8,4 +8,8 @@ router.post("/wagesave",wageController.saveWage)
 
 router.post("/showwages",wageController.Wagesshow)
 
+router.post("/expensesave",wageController.saveExpense)
+
+router.post("/displayexpense",wageController.expenseDisplay)
+
 module.exports =router
