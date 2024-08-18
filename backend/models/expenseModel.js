@@ -4,7 +4,7 @@ const expenseSchema = new mongoose.Schema({
     user:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'customer',
-        unique:false
+       index:false
     },
         amount:{
                 type:Number,

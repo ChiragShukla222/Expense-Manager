@@ -4,7 +4,7 @@ const wageSchema = new mongoose.Schema({
     user:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'customer',
-        unique:true
+        index:false
     },
         amount:{
                 type:Number,

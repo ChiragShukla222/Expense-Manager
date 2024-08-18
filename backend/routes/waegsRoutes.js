@@ -10,6 +10,6 @@ router.post("/showwages",wageController.Wagesshow)
 
 router.post("/expensesave",wageController.saveExpense)
 
-router.post("/displayexpense",wageController.expenseDisplay)
+router.post("/expdisplay",wageController.displayExp)
 
 module.exports =router
