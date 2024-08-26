@@ -38,6 +38,9 @@ const Wages = () => {
         }
   return (
     <>
+    <div style={{textAlign:"center",paddingRight:"150px",}}>
+    <h1>Enter The Wages</h1>
+    </div>
 
     {/* to get the amoutn */}
     <div className="form-container">

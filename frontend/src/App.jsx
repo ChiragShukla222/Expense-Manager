@@ -4,7 +4,9 @@ import UserDashBoard from "./components/UserDashBoard"
 import Wages from "./components/Wages"
 import Expense from "./components/Expense"
 import Saving from "./components/Saving"
+import Report from "./components/Report"
 import Showwage from "./components/Showwage"
+import Piecharts from "./components/Piecharts"
 const App = () => {
   return (
     <>
@@ -20,6 +22,9 @@ const App = () => {
                                     <Route path="expense"element={<Expense/>}/>
                                     <Route path="savings" element={<Saving/>}/>
                                     <Route path ="displaywages" element ={<Showwage/>}/>
+                                    <Route path="report" element={<Report/>}/>
+                                    <Route path = "piechart" element={<Piecharts/>}/>
+
                 </Route>
 
             </Routes>

@@ -41,9 +41,13 @@ const displayExp = async(req,res)=>{
     res.send(dexp)
     console.log("nsfhsjksn")
 }
+const reportShow = async(req,res)=>{
+    console.log("working this side backend") 
+}
 module.exports={
     saveWage,
     Wagesshow,
     saveExpense,
-    displayExp
+    displayExp,
+    reportShow
 }

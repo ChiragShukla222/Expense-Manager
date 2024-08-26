@@ -1,0 +1,54 @@
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: 20px ;
+    position: relative;
+    left: 250px;
+    font-size: 18px;
+    text-align: left;
+    
+  }
+  
+  table th, table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+  }
+  
+  table th {
+    background-color: #f4f4f4;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  tr:last-child {
+    font-weight: bold;
+    background-color: #f4f4f4;
+  }
+  
+  tr:last-child td {
+    border-top: 2px solid #333;
+  }
+  
+  td:first-child {
+    width: 50px;
+  }
+  
+  td:last-child {
+    text-align: right;
+    color: #008000; /* Green color for total amount */
+  }
+  

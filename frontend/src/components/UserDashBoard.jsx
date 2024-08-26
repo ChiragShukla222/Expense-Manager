@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { PoweroffOutlined, MoneyCollectOutlined } from '@ant-design/icons'; // Import the icons
 import { Link,Outlet } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
@@ -42,6 +42,10 @@ const UserDashBoard = () => {
             <Nav.Link as={Link} to="displaywages">Display Earning</Nav.Link>
             <Nav.Link as={Link} to="expense">Expenses</Nav.Link>
             <Nav.Link as={Link} to="savings">Display Expenses</Nav.Link>
+            <Nav.Link as={Link} to="report">Report</Nav.Link>
+            <Nav.Link as={Link} to="piechart">Chart</Nav.Link>
+            
+            
             
            
         </Nav>
