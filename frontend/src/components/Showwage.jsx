@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import "../components/tab.css"
 
 
 const Showwage = () => {
@@ -52,14 +53,14 @@ const Showwage = () => {
        <table>
        <tr>
           <td>sno</td>
-          <td>siurce</td>
-          <td>amount</td>
-          <td>date</td>
+          <td>Source</td>
+          <td>Date</td>
+          <td>Amount</td>
         </tr>
         {ans}
        </table>
        <tr>
-        {totalamount}
+        TOTAL AMOUNT :{totalamount}
        </tr>
 
     </>
