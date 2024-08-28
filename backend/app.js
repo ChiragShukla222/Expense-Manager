@@ -29,7 +29,7 @@ app.use("/customer", customerRoutes);
 app.use("/wages",wageRoutes);
 
 // Port configuration with a fallback value
-const port = process.env.PORT 
+const port = process.env.PORT ||4000
 app.listen(port, () => {
     console.log(`RUNNING ON : ${port}`);
 });
