@@ -6,27 +6,24 @@ const Report=()=>{
     const [uid, setUid]= useState("");
     const [startDate, setStartDate]= useState("");
     const [endDate, setEndDate]= useState("");
-    const [mydata1, setMydata1]= useState([]);
-    const [mydata2, setMydata2]=useState([]);
+    const [myData1, setMydata1]= useState([]);
+    const [myData2, setMydata2]=useState([]);
 
     useEffect(()=>{
         let myid= window.localStorage.getItem("userid");
         setUid(myid);
     }, [])
 
-    const handleSubmit=()=>{
+    const handleSubmit=async()=>{
         let api="http://localhost:8000/wages/showreport";
-        axios.post(api, {startdate:startDate, enddate:endDate, id:uid}).then((res)=>{
-            console.log(res.data);
-            setMydata1(res.data.mydata1);
-            setMydata2(res.data.mydata2);
-        })
-
+        const res=await axios.post(api, {startdate:startDate, enddate:endDate, id:uid})
+        setMydata1(res.data.myData1);
+        setMydata2(res.data.myData2);
     }
 
   let sno=0;
   let totalEarning=0;
-  const ernData=mydata1.map((key)=>{
+  const ernData=myData1.map((key)=>{
      sno++;
      totalEarning+=key.amount;
     return(
@@ -43,7 +40,7 @@ const Report=()=>{
 
   let sno1=0;
   let totalExpenses=0
-  const expData=mydata2.map((key)=>{
+  const expData=myData2.map((key)=>{
        sno1++;
        totalExpenses+=key.amount;
     return(
@@ -60,7 +57,8 @@ const Report=()=>{
 
     return(
         <>
-         <h1> Display user Report</h1>
+       <div className="div">
+       <h1> Display user Report</h1>
           Enter Start Date : <input type="date" value={startDate} 
          onChange={(e)=>{setStartDate(e.target.value)}} /> 
          Enter End Date : <input type="date" value={endDate} 
@@ -69,32 +67,47 @@ const Report=()=>{
          <hr size="3" />
 
          <h3 style={{color:"green"}}> Total balance: {totalEarning-totalExpenses<0?<span style={{color:"red"}}>{totalEarning-totalExpenses} </span>:totalEarning-totalExpenses}</h3>
-         <div id="reportdata">
-            <div>
-            <h2> Earning Data</h2>
-            <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Source</th>
-          <th>Date</th>
-          <th>Amount</th>
-        </tr>
-      </thead>
-      <tbody>
-          {ernData}
-          <tr>
-            <th colspan="3"> Total Earning Amount: </th>
-            <th>{totalEarning}</th>
-          </tr>
-        </tbody>
-        </Table>
+        
+        
+        
+         <div id="reportdata" style={{display:"flex" , marginTop:"25px",gap:"60px" }}>
+           
+           <div id="earning data " style={{marginLeft:"-250px"}}>
+        
+            <Table striped bordered hover >
+            
+             
+                              <thead>
+                              <h2>Earning Data</h2>
+                              <hr size="5"color="green" />
+                                <tr>
+                                  <th>#</th>
+                                  <th>Source</th>
+                                  <th>Date</th>
+                                  <th>Amount</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                  {ernData}
+                                  <tr>
+                                    <th colspan="3"> Total Earning Amount: </th>
+                                    <th>{totalEarning}</th>
+                                  </tr>
+                                </tbody>
+            </Table>
 
-            </div>
-            <div>
-            <h2> Expenses Data</h2>
+          </div>
+
+
+
+            {/* fot expesne tabele */}
+            <div style={{marginTop:"0px"}}>
+         
             <Table striped bordered hover>
+            
       <thead>
+      <h2> Expenses Data</h2>
+      <hr size="3" color="red"/>
         <tr>
           <th>#</th>
           <th>Description</th>
@@ -110,8 +123,9 @@ const Report=()=>{
           </tr>
         </tbody>
         </Table>
-            </div>
+            </div> 
          </div>
+       </div>
         </>
     )
 }
