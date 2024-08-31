@@ -1,5 +1,6 @@
 const wageModel= require("../models/wagesModel")
 const expenseModel = require("../models/expenseModel")
+const expense = require("../models/expenseModel")
 
 const saveWage=async(req,res)=>{
     
@@ -41,8 +42,26 @@ const displayExp = async(req,res)=>{
     res.send(dexp)
     console.log("nsfhsjksn")
 }
+
 const reportShow = async(req,res)=>{
-    console.log("working this side backend") 
+
+
+        const{startdate,enddate,id} = req.body
+        const myData1 = await wageModel.find({$and:[{user:id},{
+            date:{
+                $gte:new Date(JSON.stringify(startdate)),
+                $lte:new Date(JSON.stringify(enddate))
+            }
+        }]})
+
+            const myData2 = await expenseModel.find({$and:[{user:id},{
+                date:{
+                    $gte:new Date(JSON.stringify(startdate)),
+                    $lte:new Date(JSON.stringify(enddate))
+                }
+            }]})
+            res.status(200).send({myData1,myData2})
+    
 }
 module.exports={
     saveWage,
