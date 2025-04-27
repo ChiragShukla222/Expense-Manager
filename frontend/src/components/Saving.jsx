@@ -37,7 +37,11 @@ const Saving = () => {
   }, [usid]);
 
   let sno = 0;
+  let totalexp = 0;
+
+
   const ans = mydata.map((item) => {
+     totalexp = totalexp + item.amount;
     sno++;
     return (
       <tr key={item._id}>
@@ -45,9 +49,12 @@ const Saving = () => {
         <td>{item.decription}</td>
         <td>{item.amount}</td>
         <td>{new Date(item.date).toLocaleDateString()}</td>
+        {/* <td><button var="danger"> Del</button></td> */}
       </tr>
     );
   });
+
+
 
   return (
     <>
@@ -58,11 +65,13 @@ const Saving = () => {
             <th>Description</th>
             <th>Amount</th>
             <th>Date</th>
+            {/* <th>Edit</th> */}
           </tr>
         </thead>
         <tbody>
           {ans}
         </tbody>
+                <h1 > Total:{totalexp}</h1>
       </table>
     </>
   );

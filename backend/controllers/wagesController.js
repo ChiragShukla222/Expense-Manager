@@ -42,6 +42,12 @@ const displayExp = async(req,res)=>{
     res.send(dexp)
     console.log("nsfhsjksn")
 }
+const expDelete = async(req,res)=>{
+    let id = req.body.id
+    const data = await expenseModel.findByIdAndDelete(id)
+    console.log("del api wokinfnf")
+    res.status(200).send(data)
+}
 
 const reportShow = async(req,res)=>{
 
@@ -63,10 +69,21 @@ const reportShow = async(req,res)=>{
             res.status(200).send({myData1,myData2})
     
 }
+
+const chartPie =async(req,res)=>{
+    let id = req.body.id
+    const data1 = await expenseModel.find({user:id})
+    const data2 = await wageModel.find({user:id})
+    res.status(200).send({expData:data1 , wageData:data2})
+}
+
+
 module.exports={
     saveWage,
     Wagesshow,
     saveExpense,
     displayExp,
-    reportShow
+    reportShow,
+    chartPie,
+   
 }
